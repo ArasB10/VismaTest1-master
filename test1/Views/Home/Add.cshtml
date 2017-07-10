@@ -1,0 +1,39 @@
+﻿@model MyLibrary.Model.Contact
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+<!--
+
+        <input type="text" name="firstName" value="Name" /><br>
+        <input type = "text" name = "lastName" value="Last name"/><br>
+        <input type="email" name="email" value="Email" /> <br>
+        <input type="submit" />
+   
+-->
+
+
+
+<form name="contactForm" action="/home/Add" onsubmit="return validateForm()" method="post">
+    First name:<br>
+    <input type="text" name="firstName" required><br>
+    Last name:<br>
+    <input type="text" name="lastName"><br>
+    Email:<br>
+    <input type="email" name="email"required> <br>
+    Phone number:<br>
+    <input type="text" name="phone" pattern="\+\d{11}|\d{9}" title="The number must be with +370" required /><br>
+    <input type="submit" value="Submit">
+
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/addViewScripts.js"></script>

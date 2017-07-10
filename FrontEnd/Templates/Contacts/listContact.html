@@ -1,0 +1,16 @@
+﻿<table name="table" ng-controller="controllerList as vm">
+    <tr>
+        <td>First name </td>
+        <td>Last name </td>
+        <td>Email </td>
+        <td>Phone </td>
+    </tr>
+    <tr ng-repeat="item in vm.contacts">
+        <td>{{item.FirstName}} </td>
+        <td>{{item.LastName}} </td>
+        <td>{{item.Email}} </td>
+        <td>{{item.Phone}} </td>
+        <td><a href="#" ng-click="vm.delete(item)">Delete</a></td>
+        <td><a href="details/{{item.Id}}">Details</a></td>
+    </tr>
+</table>

@@ -1,0 +1,61 @@
+﻿@model IDictionary<int, MyLibrary.Model.Contact> 
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<input type="text" id="searchBar" onkeyup="seacrhBar()" placeholder="Search for contact" style="margin-bottom: 12px;">
+
+
+<table id="table" class="table">
+
+    <tr class="header">
+        <th>
+            First name
+        </th>
+
+        <th>
+           Last name
+        </th>
+
+        <th>
+            Email
+        </th>
+
+        <th>
+            Phone
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+
+    {
+
+        <tr>
+
+            <td>@item.Value.FirstName</td>
+
+            <td>@item.Value.LastName</td>
+
+            <td>@item.Value.Email</td>
+
+            <td>@item.Value.Phone</td>
+
+           <td>@Html.ActionLink("Details", "Details", new { id = item.Value.Id })</td> 
+           
+        </tr>
+
+
+
+    }
+
+</table>
+
+<a href="/home/Add">Create contact</a>
+
+<script src="~/Scripts/listViewScripts.js"></script>
